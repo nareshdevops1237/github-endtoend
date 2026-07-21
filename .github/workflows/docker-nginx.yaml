@@ -3,7 +3,7 @@ name: Docker Nginx Pipeline
 on:
   push:
     branches:
-      - main   # change to your branch, e.g. master, dev, etc.
+      - feature   # change to your branch, e.g. master, dev, etc.
 
 jobs:
   build:
