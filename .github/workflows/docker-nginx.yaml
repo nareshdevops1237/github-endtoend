@@ -1,0 +1,23 @@
+name: Docker Nginx Pipeline
+
+on:
+  push:
+    branches:
+      - main   # change to your branch, e.g. master, dev, etc.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify Docker is installed
+        run: docker --version
+
+      - name: Pull nginx image
+        run: docker pull nginx:latest
+
+      - name: List Docker images
+        run: docker images
