@@ -20,4 +20,5 @@ jobs:
         run: docker pull nginx:latest
 
       - name: List Docker images
-        run: docker images
+      - run: docker images
+      - run: docker ps -a
