@@ -24,3 +24,18 @@ jobs:
       
       - name: check the active containers
         run: docker ps -a
+      
+      - name: Run nginx container
+        run: docker run -d --name nginx-test -p 8080:80 nginx:latest
+
+      - name: Wait for container to be ready
+        run: sleep 5
+
+      - name: List running containers
+        run: docker ps
+
+      - name: Verify nginx is serving
+        run: curl -s http://localhost:8080 | head -20
+
+      - name: Show container logs
+        run: docker logs nginx-test
